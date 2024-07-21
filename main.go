@@ -1,19 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
 	price := 0
-	sabet := 1000000
 	var sod int
-	for i := 0; i <= 1*12; i++ {
-		for i := 0; i <= 2*12; i++ {
-			sod = (price / 100) * 1
-			price += sod
-			price += sabet
+	sabet := 1000000
+	for i := 0; i <= 2*12; i++ {
+		sod = (price / 100) * 1
+		price += sod
+		if i%13 == 0 && i != 0 {
 
-			fmt.Println(price, sod, i/12, i)
+			sabet += (sabet / 100) * 40
 		}
+		price += sabet
+
+		fmt.Println(price, sod, i/12, i)
 	}
 }
